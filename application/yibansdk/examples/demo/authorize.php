@@ -1,26 +1,26 @@
 <?php
-	/**
-	 * ¿¿¿¿¿¿Auth¿¿¿¿¿¿¿¿
-	 * ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿code¿¿
-	 * ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
-	 *
-	 */
+/**
+ * ç½‘ç«™æŽ¥å…¥ä½¿ç”¨Authè®¤è¯æŽ¥å£è¿›è¡ŒæŽˆæƒ
+ * æŽˆæƒæµç¨‹å…ˆé€šè¿‡æµè§ˆå™¨é‡å®šå‘åˆ°æŽˆæƒæœåŠ¡å™¨å–å¾—æŽˆæƒç ï¼ˆcodeï¼‰åŽ
+ * å†ä»ŽæœåŠ¡å™¨ä½¿ç”¨æŽ¥å£è°ƒç”¨èŽ·å–åˆ°å¯¹åº”ç”¨æˆ·çš„è®¿é—®ä»¤ç‰Œ
+ *
+ */
 
 
 	/**
-	 * ¿¿SDK
+	 * åŒ…å«SDK
 	 */
 	require("../../classes/yb-globals.inc.php");
 	
 	session_start();
 
 	/**
-	 * ¿¿¿¿
+	 * é…ç½®æ–‡ä»¶
 	 */
 	include('config.php');
 	
 	/**
-	 * ¿¿¿¿¿¿AppID¿AppSecret¿¿¿¿¿
+	 * æŽˆæƒè®¤è¯éœ€è¦AppIDã€AppSecretå’Œå›žè°ƒåœ°å€åˆ
 	 *
 	 */
 	$api = YBOpenApi::getInstance()->init($cfg['m']['appID'], $cfg['m']['appSecret'], $cfg['m']['callback']);
@@ -29,22 +29,22 @@
 	$au  = $api->getAuthorize();
 	
 	/**
-	 * ¿¿¿¿¿¿session¿¿¿¿¿¿¿¿¿¿¿
+	 * æµ‹è¯•ä¾‹ç¨‹ä½¿ç”¨ sessionä¿å­˜å·²èŽ·å–åˆ°çš„è®¿é—®ä»¤ç‰Œ
 	 */
 	$token	= isset($_SESSION['__TOKEN__']) ? $_SESSION['__TOKEN__'] : false;
 
-	if (empty($token))		// ¿¿¿¿¿
+	if (empty($token))		// æœªèŽ·å–æŽˆæƒ
 	{
 		/**
-		 * ¿¿¿¿¿¿¿¿¿¿¿¿URL¿¿¿code¿¿¿¿¿¿¿
+		 * ä»ŽæŽˆæƒæœåŠ¡å™¨å›žè°ƒè¿”å›žæ—¶ï¼ŒURLä¸­å¸¦æœ‰codeï¼ˆæŽˆæƒç ï¼‰å‚æ•°
 		 *
 		 */
 		if (isset($_GET['code']) && !empty($_GET['code']))
 		{
 			/**
-			 * ¿¿¿¿¿¿code¿¿¿¿¿¿¿
-			 * ¿¿¿¿¿session¿¿$info['access_token']
-			 * ¿¿¿¿msgCN ¿¿¿¿
+			 * ä½¿ç”¨æŽˆæƒç ï¼ˆcodeï¼‰èŽ·å–è®¿é—®ä»¤ç‰Œ
+			 * è‹¥èŽ·å–æˆåŠŸï¼Œè¿”å›ž $info['access_token']
+			 * å¦åˆ™æŸ¥çœ‹å¯¹åº”çš„ msgCN æŸ¥çœ‹é”™è¯¯ä¿¡æ¯
 			 */
 			$info = $au->querytoken($_GET['code']);
 			if (isset($info['access_token']))
@@ -58,7 +58,7 @@
 			}
 			var_dump($_SESSION);
 		}
-		else	// ¿¿¿¿¿¿¿¿¿
+		else	// é‡å®šå‘åˆ°æŽˆæƒæœåŠ¡å™¨ï¼ˆè¿™é‡Œä½¿ç”¨header()é‡å®šå‘ï¼Œå¯ç”¨ä½¿ç”¨å…¶å®ƒæ–¹æ³•ï¼‰
 		{
 			header('location: ' . $au->forwardurl());
 		}
