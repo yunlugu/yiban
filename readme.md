@@ -15,7 +15,7 @@
 ## smarty
 
 封装于application/library/Use_smarty.php
-
+在视图中使用smarty需要在控制器中加载Use_smarty库，并使用$this->smarty->main_view()或$this->smarty->view()方法代替load->view()方法，参见demo控制器
 接入：
 
         //传入header.php视图所在目录
@@ -24,4 +24,4 @@
         //调用视图
         $this->smarty->main_view('index', $this->data);
 
-易班授权demo：application/controller/Demo.php
+默认控制器demo：application/controller/Demo.php

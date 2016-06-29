@@ -1,3 +1,26 @@
+<?php
+/* Smarty version 3.1.29, created on 2016-06-29 12:58:51
+  from "E:\wamp64\www\yiban_base\application\views\demo\welcome_message.php" */
+
+if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
+  'has_nocache_code' => false,
+  'version' => '3.1.29',
+  'unifunc' => 'content_5773c60bcc20a7_55810878',
+  'file_dependency' => 
+  array (
+    '15d1377c881c81f91e1b527cb14fafc60d6d8660' => 
+    array (
+      0 => 'E:\\wamp64\\www\\yiban_base\\application\\views\\demo\\welcome_message.php',
+      1 => 1467204966,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5773c60bcc20a7_55810878 ($_smarty_tpl) {
+?>
 
 
 <div id="container">
@@ -22,3 +45,5 @@
 </div>
 
 
+<?php }
+}
